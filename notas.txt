@@ -1,3 +1,12 @@
+===
+Environment Setup:
+$ export PATH=/d/projeto-novo/nvm-noinstall:/d/nodejs-nvm/:$PATH
+
+Install nvm Ubuntu
+$ curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+
+Install nvm Node:
+$ nvm install 18.16.0
 
 
 Use The Right React Router Version:
