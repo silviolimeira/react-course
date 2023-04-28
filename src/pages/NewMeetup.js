@@ -26,8 +26,6 @@ function NewMeetupPage() {
       body: JSON.stringify(product),
       headers: {
         "Content-Type": "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODI3NzYxOTUsInVzZXJfbmFtZSI6ImFsZXhAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9PUEVSQVRPUiJdLCJqdGkiOiI4NzE2ZDA2My05ZTBmLTQ3MGQtOWQ1Zi01M2YyMWE5NjEwYTEiLCJjbGllbnRfaWQiOiJkc2NhdGFsb2ciLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.lMTf31o31-13N6N5RTUeqJL6i4kaVr7ZE-SK1-iRuV4",
       },
     }).then(() => {
       history.replace("/");
