@@ -1,6 +1,8 @@
+import { useHistory } from "react-router-dom";
 import NewMeetupForm from "../components/meetups/NewMeetupForm";
 
 function NewMeetupPage() {
+  const history = useHistory();
   function addMeetupHandler(meetupData) {
     console.log("addMeetupHandler");
     // TODO: Send http request
@@ -27,6 +29,8 @@ function NewMeetupPage() {
         Authorization:
           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODI3NzYxOTUsInVzZXJfbmFtZSI6ImFsZXhAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9PUEVSQVRPUiJdLCJqdGkiOiI4NzE2ZDA2My05ZTBmLTQ3MGQtOWQ1Zi01M2YyMWE5NjEwYTEiLCJjbGllbnRfaWQiOiJkc2NhdGFsb2ciLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.lMTf31o31-13N6N5RTUeqJL6i4kaVr7ZE-SK1-iRuV4",
       },
+    }).then(() => {
+      history.replace("/");
     });
   }
   return (
