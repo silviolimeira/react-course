@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import MeetupList from "../components/meetups/MeetupList";
 
-let products = [];
+var products = [];
 
 const DUMMY_DATA = [
   {
     id: "m1",
     title: "This is a first meetup",
     image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
+      "https://raw.githubusercontent.com/devsuperior/dscatalog-resources/master/backend/img/24-big.jpg",
     address: "Meetupstreet 5, 12345 Meetup City",
     description:
       "This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!",
@@ -17,7 +17,7 @@ const DUMMY_DATA = [
     id: "m2",
     title: "This is a second meetup",
     image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
+      "https://i.pinimg.com/originals/4b/5e/85/4b5e8530c4559375dfc3fd7d1af22ab9.jpg",
     address: "Meetupstreet 5, 12345 Meetup City",
     description:
       "This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!",
@@ -55,7 +55,7 @@ function AllMeetupsPage() {
         }
         setIsLoading(false);
         setLoadedProducts(products);
-        console.log(products);
+        //console.log(products);
       })
       .catch((erro) => {
         console.log("Fallha ao carregar ...", erro);
@@ -68,7 +68,7 @@ function AllMeetupsPage() {
       });
   }, [isLoading]);
 
-  console.log(products);
+  //console.log(products);
   return (
     <section>
       <h1>All Meetups Page</h1>

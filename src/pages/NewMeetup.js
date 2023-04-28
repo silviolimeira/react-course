@@ -4,7 +4,7 @@ import NewMeetupForm from "../components/meetups/NewMeetupForm";
 function NewMeetupPage() {
   const history = useHistory();
   function addMeetupHandler(meetupData) {
-    console.log("addMeetupHandler");
+    //console.log("addMeetupHandler");
     // TODO: Send http request
     const product = {
       date: "2020-07-20T10:00:00Z",
