@@ -1,4 +1,7 @@
+import { useState, useEffect } from "react";
 import MeetupList from "../components/meetups/MeetupList";
+
+let products = [];
 
 const DUMMY_DATA = [
   {
@@ -22,10 +25,57 @@ const DUMMY_DATA = [
 ];
 
 function AllMeetupsPage() {
+  let meetups = DUMMY_DATA;
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadedPodructs, setLoadedProducts] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:8080/products")
+      .then((response) => {
+        return response.json();
+      })
+      .then((content) => {
+        //
+        products = [];
+        for (const key in content.content) {
+          const product = {
+            id: key,
+            ...content.content[key],
+          };
+          products.push(product);
+        }
+
+        if (isLoading) {
+          console.log("Loading ...");
+          return (
+            <section>
+              <h1>Loading ...</h1>
+            </section>
+          );
+        }
+        setIsLoading(false);
+        setLoadedProducts(products);
+        console.log(products);
+      })
+      .catch((erro) => {
+        console.log("Fallha ao carregar ...", erro);
+        setIsLoading(false);
+        return (
+          <section>
+            <h1>Falha ao carregar ...</h1>
+          </section>
+        );
+      });
+  }, [isLoading]);
+
+  console.log(products);
   return (
     <section>
       <h1>All Meetups Page</h1>
-      <MeetupList meetups={DUMMY_DATA} />
+      {products.map((product) => (
+        <p>{product.id}</p>
+      ))}
+      <MeetupList meetups={meetups} />
     </section>
   );
 }
